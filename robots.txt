@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://benrahaym66.github.io/mainofficial-leyu-com-cn/sitemap.xml
