@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欧博 · 用途识别卡片页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8f9fa;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0b1f33;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: #475569;
+      max-width: 640px;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+      color: #2563eb;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0.25rem;
+    }
+
+    /* 适合人群区块 */
+    .audience {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 2.2rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .audience h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+      border-left: 4px solid #2563eb;
+      padding-left: 1rem;
+    }
+
+    .audience-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      border-radius: 100px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.9rem;
+      color: #1e293b;
+      font-weight: 450;
+      letter-spacing: 0.01em;
+    }
+
+    /* 自然链接段落 */
+    .links-section {
+      margin: 2.8rem 0;
+      font-size: 1rem;
+      color: #334155;
+      max-width: 680px;
+    }
+
+    .links-section p {
+      margin-bottom: 1.2rem;
+    }
+
+    .links-section a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37,99,235,0.2);
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 450;
+    }
+
+    .links-section a:hover {
+      border-bottom-color: #2563eb;
+      color: #1d4ed8;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.5rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .faq-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      color: #475569;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 1.2rem 0;
+    }
+
+    .footer-note {
+      margin: 3.5rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .audience {
+        padding: 1.5rem;
+      }
+      .faq-summary {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>识别用途，<br>从一张信息卡开始</h1>
+      <p>一个希望快速理解网站定位的用户，不需要复杂导览，只需几组清晰的标签与场景描述。这里整理好了一切。</p>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="card-grid">
+      <div class="card">
+        <span class="icon">🔍</span>
+        <h3>快速定位</h3>
+        <p>一眼判断该网站提供的核心服务与内容方向，节省反复尝试的时间。</p>
+      </div>
+      <div class="card">
+        <span class="icon">🧩</span>
+        <h3>场景覆盖</h3>
+        <p>从个人查询到工作参考，不同使用方式都能找到对应模块，不必额外搜索。</p>
+      </div>
+      <div class="card">
+        <span class="icon">📌</span>
+        <h3>信息结构</h3>
+        <p>清晰的分类与层级，让浏览者能迅速定位自己关心的部分，降低认知负荷。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience">
+      <h2>适合哪些人</h2>
+      <div class="audience-items">
+        <span class="tag">初次浏览者</span>
+        <span class="tag">信息整理爱好者</span>
+        <span class="tag">功能探索者</span>
+        <span class="tag">内容研究者</span>
+        <span class="tag">习惯高效率阅读的用户</span>
+        <span class="tag">想要对比定位的人</span>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="links-section">
+      <p>
+        如果你想进一步了解这个站点的完整内容，可以直接前往 <a href="https://web-site-oubo.com">欧博</a> 查看更多说明和模块布局。那里的信息结构延续了卡片式思路，方便逐层展开。
+      </p>
+      <p>
+        很多用户反馈，在打开 <a href="https://web-site-oubo.com">欧博</a> 之前，先看一遍这里的用途摘要，能更快地找到自己需要的东西。这或许是因为卡片把模糊的需求转化成了具体选项。
+      </p>
+      <p>
+        无论你是技术背景还是普通访客，都可以用这个页面作为索引，再决定是否进入 <a href="https://web-site-oubo.com">欧博</a> 深入了解。我们不做过度包装，只呈现真实的信息层次。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h2>常见疑问 · 摘要</h2>
+      <div class="faq-item">
+        <strong>这个页面和主站有什么区别？</strong>
+        <p>本页是浓缩的用途说明页，帮你快速判断是否匹配需求；主站包含完整内容与功能模块。</p>
+      </div>
+      <hr>
+      <div class="faq-item">
+        <strong>卡片里提到的场景真实吗？</strong>
+        <p>是的，所有描述基于实际使用观察，不包含虚构或夸大。适合人群标签也来自常见访客画像。</p>
+      </div>
+      <hr>
+      <div class="faq-item">
+        <strong>我可以用手机浏览吗？</strong>
+        <p>本页面采用窄版式与响应式设计，在手机、平板和桌面均能正常阅读，无需横向缩放。</p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      — 信息卡片式说明 · 极简轮廓 —
+    </div>
+
+  </div>
+</body>
+</html>
